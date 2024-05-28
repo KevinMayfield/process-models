@@ -1,0 +1,61 @@
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:collaboration id="Collaboration_0x3lcv5">
+    <bpmn2:participant id="Participant_1ks39ku" name="Placer (e.g. GP or Mental Health)" processRef="Process_1"/>
+    <bpmn2:participant id="Participant_1lfn8zn" name="Filer (e,g, Mental Health or GP)" processRef="Process_1yqtenq"/>
+  </bpmn2:collaboration>
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:laneSet id="LaneSet_0o41toy">
+      <bpmn2:lane id="Lane_14x9wmk">
+        <bpmn2:flowNodeRef>Event_1sar7n4</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_0gg4o3t</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Event_0oa56x5</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+    </bpmn2:laneSet>
+    <bpmn2:startEvent id="Event_1sar7n4">
+      <bpmn2:outgoing>Flow_0dyc3q5</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:task id="Activity_0gg4o3t" name="Implement Care Plan">
+      <bpmn2:incoming>Flow_0dyc3q5</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1bjzf0h</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="Flow_0dyc3q5" sourceRef="Event_1sar7n4" targetRef="Activity_0gg4o3t"/>
+    <bpmn2:intermediateThrowEvent id="Event_0oa56x5">
+      <bpmn2:incoming>Flow_1bjzf0h</bpmn2:incoming>
+    </bpmn2:intermediateThrowEvent>
+    <bpmn2:sequenceFlow id="Flow_1bjzf0h" sourceRef="Activity_0gg4o3t" targetRef="Event_0oa56x5"/>
+  </bpmn2:process>
+  <bpmn2:process id="Process_1yqtenq"/>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0x3lcv5">
+      <bpmndi:BPMNShape id="Participant_1ks39ku_di" bpmnElement="Participant_1ks39ku" isHorizontal="true">
+        <dc:Bounds x="162" y="252" width="808" height="248"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_14x9wmk_di" bpmnElement="Lane_14x9wmk" isHorizontal="true">
+        <dc:Bounds x="192" y="252" width="778" height="248"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1sar7n4_di" bpmnElement="Event_1sar7n4">
+        <dc:Bounds x="242" y="362" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0gg4o3t_di" bpmnElement="Activity_0gg4o3t">
+        <dc:Bounds x="330" y="340" width="100" height="80"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0oa56x5_di" bpmnElement="Event_0oa56x5">
+        <dc:Bounds x="482" y="362" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0dyc3q5_di" bpmnElement="Flow_0dyc3q5">
+        <di:waypoint x="278" y="380"/>
+        <di:waypoint x="330" y="380"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1bjzf0h_di" bpmnElement="Flow_1bjzf0h">
+        <di:waypoint x="430" y="380"/>
+        <di:waypoint x="482" y="380"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_1lfn8zn_di" bpmnElement="Participant_1lfn8zn" isHorizontal="true">
+        <dc:Bounds x="162" y="510" width="808" height="250"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
