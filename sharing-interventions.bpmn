@@ -79,7 +79,7 @@
     </bpmn2:intermediateCatchEvent>
     <bpmn2:sequenceFlow id="Flow_0wev36d" sourceRef="Activity_13uecws" targetRef="Event_1mjy7ht"/>
     <bpmn2:sequenceFlow id="Flow_18fzyqb" sourceRef="Event_19l0twj" targetRef="Activity_18i0v3r"/>
-    <bpmn2:task id="Activity_18i0v3r" name="Triage Activity">
+    <bpmn2:task id="Activity_18i0v3r" name="Receive Activity">
       <bpmn2:incoming>Flow_18fzyqb</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0j1jcga</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_0p7nv96</bpmn2:outgoing>
