@@ -14,9 +14,9 @@
         <bpmn2:flowNodeRef>Activity_13hfxbt</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Activity_1fro49w</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Gateway_1iwscki</bpmn2:flowNodeRef>
-        <bpmn2:flowNodeRef>Activity_0gg4o3t</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Event_1sar7n4</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Event_0gx3qmo</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_0gg4o3t</bpmn2:flowNodeRef>
       </bpmn2:lane>
     </bpmn2:laneSet>
     <bpmn2:intermediateThrowEvent id="Event_0oa56x5" name="Request Activity">
@@ -51,10 +51,6 @@
       <bpmn2:outgoing>Flow_0tnpfbr</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_0f29iiz</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:task id="Activity_0gg4o3t" name="Implement Care Plan">
-      <bpmn2:incoming>Flow_0dyc3q5</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0kkv3ed</bpmn2:outgoing>
-    </bpmn2:task>
     <bpmn2:startEvent id="Event_1sar7n4">
       <bpmn2:outgoing>Flow_0dyc3q5</bpmn2:outgoing>
     </bpmn2:startEvent>
@@ -70,6 +66,10 @@
       <bpmn2:incoming>Flow_1916gd3</bpmn2:incoming>
       <bpmn2:terminateEventDefinition id="TerminateEventDefinition_0nj67ng"/>
     </bpmn2:endEvent>
+    <bpmn2:userTask id="Activity_0gg4o3t" name="Implement Care Plan">
+      <bpmn2:incoming>Flow_0dyc3q5</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0kkv3ed</bpmn2:outgoing>
+    </bpmn2:userTask>
   </bpmn2:process>
   <bpmn2:process id="Process_1yqtenq">
     <bpmn2:intermediateCatchEvent id="Event_19l0twj">
@@ -79,18 +79,6 @@
     </bpmn2:intermediateCatchEvent>
     <bpmn2:sequenceFlow id="Flow_0wev36d" sourceRef="Activity_13uecws" targetRef="Event_1mjy7ht"/>
     <bpmn2:sequenceFlow id="Flow_18fzyqb" sourceRef="Event_19l0twj" targetRef="Activity_18i0v3r"/>
-    <bpmn2:task id="Activity_18i0v3r" name="Receive Activity">
-      <bpmn2:incoming>Flow_18fzyqb</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0j1jcga</bpmn2:outgoing>
-      <bpmn2:outgoing>Flow_0p7nv96</bpmn2:outgoing>
-    </bpmn2:task>
-    <bpmn2:task id="Activity_13uecws" name="Perform Activity">
-      <bpmn2:incoming>Flow_0j1jcga</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0wev36d</bpmn2:outgoing>
-      <bpmn2:dataOutputAssociation id="DataOutputAssociation_00784kl">
-        <bpmn2:targetRef>DataStoreReference_041mudv</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-    </bpmn2:task>
     <bpmn2:intermediateThrowEvent id="Event_1mjy7ht">
       <bpmn2:incoming>Flow_0wev36d</bpmn2:incoming>
       <bpmn2:messageEventDefinition id="MessageEventDefinition_1dsj7x5" messageRef="Message_3nn1s30"/>
@@ -102,6 +90,18 @@
       <bpmn2:incoming>Flow_0p7nv96</bpmn2:incoming>
       <bpmn2:messageEventDefinition id="MessageEventDefinition_0st2obw" messageRef="Message_3nn1s30"/>
     </bpmn2:intermediateThrowEvent>
+    <bpmn2:userTask id="Activity_18i0v3r" name="Receive Activity">
+      <bpmn2:incoming>Flow_18fzyqb</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0j1jcga</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_0p7nv96</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="Activity_13uecws" name="Perform Activity">
+      <bpmn2:incoming>Flow_0j1jcga</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0wev36d</bpmn2:outgoing>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_00784kl">
+        <bpmn2:targetRef>DataStoreReference_041mudv</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:userTask>
   </bpmn2:process>
   <bpmn2:message id="Message_3nn1s30" name="Create/Update Task Request"/>
   <bpmn2:message id="Message_1uvrng6" name="Shared Medical Records"/>
@@ -136,15 +136,14 @@
       <bpmndi:BPMNShape id="Gateway_1iwscki_di" bpmnElement="Gateway_1iwscki" isMarkerVisible="true">
         <dc:Bounds x="481" y="355" width="50" height="50"/>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0gg4o3t_di" bpmnElement="Activity_0gg4o3t">
-        <dc:Bounds x="306" y="340" width="100" height="80"/>
-        <bpmndi:BPMNLabel/>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1sar7n4_di" bpmnElement="Event_1sar7n4">
         <dc:Bounds x="208" y="362" width="36" height="36"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_167wd2b_di" bpmnElement="Event_0gx3qmo">
         <dc:Bounds x="1188" y="362" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0l6fltp_di" bpmnElement="Activity_0gg4o3t">
+        <dc:Bounds x="306" y="340" width="100" height="80"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1qx2j8b_di" bpmnElement="Flow_1qx2j8b">
         <di:waypoint x="556" y="500"/>
@@ -185,14 +184,6 @@
       <bpmndi:BPMNShape id="Event_14ydy3m_di" bpmnElement="Event_19l0twj">
         <dc:Bounds x="632" y="782" width="36" height="36"/>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_18i0v3r_di" bpmnElement="Activity_18i0v3r">
-        <dc:Bounds x="730" y="760" width="100" height="80"/>
-        <bpmndi:BPMNLabel/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_13uecws_di" bpmnElement="Activity_13uecws">
-        <dc:Bounds x="890" y="760" width="100" height="80"/>
-        <bpmndi:BPMNLabel/>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1cmp0l1_di" bpmnElement="Event_1mjy7ht">
         <dc:Bounds x="1052" y="782" width="36" height="36"/>
       </bpmndi:BPMNShape>
@@ -204,6 +195,12 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="746" y="945" width="68" height="27"/>
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_07d3rjw_di" bpmnElement="Activity_18i0v3r">
+        <dc:Bounds x="730" y="760" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qf1pk1_di" bpmnElement="Activity_13uecws">
+        <dc:Bounds x="890" y="760" width="100" height="80"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0wev36d_di" bpmnElement="Flow_0wev36d">
         <di:waypoint x="990" y="800"/>
