@@ -24,7 +24,7 @@
     <bpmn2:sequenceFlow id="Flow_0d11k85" sourceRef="Gateway_15tut0e" targetRef="Activity_0ixvfqj"/>
     <bpmn2:sequenceFlow id="Flow_1tqndj1" sourceRef="Gateway_15tut0e" targetRef="Activity_1ympvgp"/>
     <bpmn2:sequenceFlow id="Flow_1msxl5a" sourceRef="Gateway_15tut0e" targetRef="Activity_00yp15w"/>
-    <bpmn2:serviceTask id="Activity_1ympvgp" name="Observations">
+    <bpmn2:serviceTask id="Activity_1ympvgp" name="Retrieve internal and external Observations">
       <bpmn2:incoming>Flow_1tqndj1</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0tcgjqf</bpmn2:outgoing>
       <bpmn2:property id="Property_16ty4h1" name="__targetRef_placeholder"/>
@@ -33,14 +33,14 @@
         <bpmn2:targetRef>Property_16ty4h1</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
     </bpmn2:serviceTask>
-    <bpmn2:serviceTask id="Activity_00yp15w" name="Forms">
+    <bpmn2:serviceTask id="Activity_00yp15w" name="Retrieve external Forms">
       <bpmn2:incoming>Flow_1msxl5a</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0nsqh19</bpmn2:outgoing>
       <bpmn2:dataOutputAssociation id="DataOutputAssociation_1pl6i5f">
         <bpmn2:targetRef>DataStoreReference_0ct7ot5</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:serviceTask>
-    <bpmn2:serviceTask id="Activity_0ixvfqj" name="Documents">
+    <bpmn2:serviceTask id="Activity_0ixvfqj" name="Retrieve internal and external Documents">
       <bpmn2:incoming>Flow_0d11k85</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1hcse97</bpmn2:outgoing>
       <bpmn2:property id="Property_0wf5u21" name="__targetRef_placeholder"/>
@@ -114,12 +114,15 @@ Data is not often shared (at enterprise level</bpmn2:text>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1pff7wo_di" bpmnElement="Activity_1ympvgp">
         <dc:Bounds x="820" y="340" width="100" height="80"/>
+        <bpmndi:BPMNLabel/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0xus4to_di" bpmnElement="Activity_00yp15w">
         <dc:Bounds x="820" y="228" width="100" height="80"/>
+        <bpmndi:BPMNLabel/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0sgxekz_di" bpmnElement="Activity_0ixvfqj">
         <dc:Bounds x="820" y="110" width="100" height="80"/>
+        <bpmndi:BPMNLabel/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_08bkbke_di" bpmnElement="Gateway_08bkbke" isMarkerVisible="true">
         <dc:Bounds x="985" y="243" width="50" height="50"/>
@@ -182,42 +185,38 @@ Data is not often shared (at enterprise level</bpmn2:text>
         <di:waypoint x="1350" y="268"/>
         <di:waypoint x="1422" y="268"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Participant_1wbfwma_di" bpmnElement="Participant_1wbfwma" isHorizontal="true">
-        <dc:Bounds x="340" y="-70" width="1170" height="150"/>
-        <bpmndi:BPMNLabel/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0d3u745_di" bpmnElement="TextAnnotation_0d3u745">
-        <dc:Bounds x="970" y="-13" width="230" height="53"/>
-        <bpmndi:BPMNLabel/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataStoreReference_0pd812g_di" bpmnElement="DataStoreReference_0pd812g">
-        <dc:Bounds x="845" y="-25" width="50" height="50"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_02j8in4_di" bpmnElement="Association_02j8in4">
-        <di:waypoint x="895" y="0"/>
-        <di:waypoint x="970" y="1"/>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_1i4wmyb_di" bpmnElement="Participant_1i4wmyb" isHorizontal="true">
         <dc:Bounds x="340" y="460" width="1170" height="170"/>
-        <bpmndi:BPMNLabel/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_09zzff3_di" bpmnElement="TextAnnotation_09zzff3">
-        <dc:Bounds x="980" y="530" width="100" height="40.99609375"/>
         <bpmndi:BPMNLabel/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="DataStoreReference_05cqn6k_di" bpmnElement="DataStoreReference_05cqn6k">
         <dc:Bounds x="845" y="525" width="50" height="50"/>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_09zzff3_di" bpmnElement="TextAnnotation_09zzff3">
+        <dc:Bounds x="980" y="530" width="100" height="40.99609375"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_07a2xji_di" bpmnElement="Association_07a2xji">
         <di:waypoint x="895" y="549"/>
         <di:waypoint x="980" y="547"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Participant_1pq3mca_di" bpmnElement="Participant_1pq3mca" isHorizontal="true">
-        <dc:Bounds x="340" y="640" width="1170" height="220"/>
+      <bpmndi:BPMNShape id="Participant_1wbfwma_di" bpmnElement="Participant_1wbfwma" isHorizontal="true">
+        <dc:Bounds x="340" y="-70" width="1170" height="150"/>
         <bpmndi:BPMNLabel/>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1tag9nd_di" bpmnElement="TextAnnotation_1tag9nd">
-        <dc:Bounds x="880" y="725" width="300" height="75"/>
+      <bpmndi:BPMNShape id="DataStoreReference_0pd812g_di" bpmnElement="DataStoreReference_0pd812g">
+        <dc:Bounds x="845" y="-25" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0d3u745_di" bpmnElement="TextAnnotation_0d3u745">
+        <dc:Bounds x="970" y="-13" width="230" height="53"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_02j8in4_di" bpmnElement="Association_02j8in4">
+        <di:waypoint x="895" y="0"/>
+        <di:waypoint x="970" y="1"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_1pq3mca_di" bpmnElement="Participant_1pq3mca" isHorizontal="true">
+        <dc:Bounds x="340" y="640" width="1170" height="220"/>
         <bpmndi:BPMNLabel/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="DataStoreReference_0ct7ot5_di" bpmnElement="DataStoreReference_0ct7ot5">
@@ -225,6 +224,10 @@ Data is not often shared (at enterprise level</bpmn2:text>
         <bpmndi:BPMNLabel>
           <dc:Bounds x="700" y="772" width="81" height="14"/>
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1tag9nd_di" bpmnElement="TextAnnotation_1tag9nd">
+        <dc:Bounds x="880" y="725" width="300" height="75"/>
+        <bpmndi:BPMNLabel/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1riix2r_di" bpmnElement="Association_1riix2r">
         <di:waypoint x="765" y="740"/>
@@ -234,14 +237,14 @@ Data is not often shared (at enterprise level</bpmn2:text>
         <di:waypoint x="870" y="525"/>
         <di:waypoint x="870" y="420"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0yuyurt_di" bpmnElement="DataInputAssociation_0yuyurt">
-        <di:waypoint x="870" y="25"/>
-        <di:waypoint x="870" y="110"/>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataOutputAssociation_1pl6i5f_di" bpmnElement="DataOutputAssociation_1pl6i5f">
         <di:waypoint x="836" y="308"/>
         <di:waypoint x="740" y="420"/>
         <di:waypoint x="740" y="715"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0yuyurt_di" bpmnElement="DataInputAssociation_0yuyurt">
+        <di:waypoint x="870" y="25"/>
+        <di:waypoint x="870" y="110"/>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
